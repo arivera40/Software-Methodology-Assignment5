@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,6 +37,7 @@ public class PriceDetailsActivity extends AppCompatActivity {
     private TextView ticketPrice;
     private TextView taxPrice;
     private TextView totalPrice;
+    private ImageButton museumButton;
 
     private String pattern = "0.00";
     private String urlPath;
@@ -56,6 +58,7 @@ public class PriceDetailsActivity extends AppCompatActivity {
         ticketPrice = (TextView)findViewById(R.id.ticketPrice);
         taxPrice = (TextView)findViewById(R.id.taxPrice);
         totalPrice = (TextView)findViewById(R.id.totalPrice);
+        museumButton = (ImageButton)findViewById((R.id.museumImageButton));
 
         //Retrieves bundled data on museum from previous Activity
         Intent i = this.getIntent();
@@ -66,6 +69,7 @@ public class PriceDetailsActivity extends AppCompatActivity {
         if(museum instanceof AmericanArt){
             ((TextView)findViewById(R.id.museumTitle)).setText("Whitney Museum of American Art");
             urlPath = "https://whitney.org/";
+            museumButton.setBackgroundResource(R.drawable.american_art);
             AmericanArt americanArt = (AmericanArt) museum;
             studentTicketPrice = americanArt.studentTicketPrice;
             adultTicketPrice = americanArt.adultTicketPrice;
@@ -73,6 +77,7 @@ public class PriceDetailsActivity extends AppCompatActivity {
         }else if(museum instanceof ArtsAndDesign){
             ((TextView)findViewById(R.id.museumTitle)).setText("Museum of Arts and Design");
             urlPath = "https://madmuseum.org/";
+            museumButton.setBackgroundResource(R.drawable.arts_and_design);
             ArtsAndDesign artsDesign = (ArtsAndDesign) museum;
             studentTicketPrice = artsDesign.studentTicketPrice;
             adultTicketPrice = artsDesign.adultTicketPrice;
@@ -80,6 +85,7 @@ public class PriceDetailsActivity extends AppCompatActivity {
         }else if(museum instanceof ModernArt){
             ((TextView)findViewById(R.id.museumTitle)).setText("The Museum of Modern Art");
             urlPath = "https://www.moma.org/";
+            museumButton.setBackgroundResource(R.drawable.modern_art);
             ModernArt modernArt = (ModernArt) museum;
             studentTicketPrice = modernArt.studentTicketPrice;
             adultTicketPrice = modernArt.adultTicketPrice;
@@ -87,6 +93,7 @@ public class PriceDetailsActivity extends AppCompatActivity {
         }else{
             ((TextView)findViewById(R.id.museumTitle)).setText("American Museum of Natural Science");
             urlPath = "https://www.amnh.org/";
+            museumButton.setBackgroundResource(R.drawable.natural_history);
             NaturalHistory naturalHistory = (NaturalHistory) museum;
             studentTicketPrice = naturalHistory.studentTicketPrice;
             adultTicketPrice = naturalHistory.adultTicketPrice;
