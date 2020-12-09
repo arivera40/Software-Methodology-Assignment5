@@ -12,4 +12,7 @@ import java.io.Serializable;
 */
 
 public abstract class Museum implements Serializable {
+    
     static final int MAX_TICKETS = 5;  // max amount of tickets allowed
+    
+}
