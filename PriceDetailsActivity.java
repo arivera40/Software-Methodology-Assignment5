@@ -2,6 +2,15 @@ package com.example.museumsnyc;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+* This is the class for PriceDetailsActivity which extends AppCompatActivity
+* that defines all of the messages to be shown on certain actions
+*
+*
+* @author Andy Rivera and Joseph Shamma
+*
+*/
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -122,13 +131,17 @@ public class PriceDetailsActivity extends AppCompatActivity {
         taxPrice.setText("$0.00");
         totalPrice.setText("$0.00");
     }
-
+    /*
+     * Formats the price
+     */
     private String formatPrice(double price){
         DecimalFormat decimalFormat = new DecimalFormat(pattern);
         String numberStr = decimalFormat.format(price);
         return numberStr;
     }
-
+    /*
+     * Increases the ticket quality of students
+     */
     public void increaseStudentQuantity(View v){
         //Over the limit of 5 tickets
         if(!(studentTicketQuantity + 1 <= 5)){
@@ -140,7 +153,9 @@ public class PriceDetailsActivity extends AppCompatActivity {
         updatePrices();
         return;
     }
-
+    /*
+     * Decreases the ticket quality of students
+     */
     public void decreaseStudentQuantity(View v){
         //Can't have less than 0 tickets
         if(!(studentTicketQuantity - 1 >= 0)){
@@ -152,7 +167,9 @@ public class PriceDetailsActivity extends AppCompatActivity {
         updatePrices();
         return;
     }
-
+    /*
+     * Increases the ticket quality of adults
+     */
     public void increaseAdultQuantity(View v){
         //Over the limit of 5 tickets
         if(!(adultTicketQuantity + 1 <= 5)){
@@ -164,7 +181,9 @@ public class PriceDetailsActivity extends AppCompatActivity {
         updatePrices();
         return;
     }
-
+    /*
+     * Decreases the ticket quality of adults
+     */
     public void decreaseAdultQuantity(View v){
         //Can't have less than 0 tickets
         if(!(adultTicketQuantity - 1 >= 0)){
@@ -176,7 +195,9 @@ public class PriceDetailsActivity extends AppCompatActivity {
         updatePrices();
         return;
     }
-
+    /*
+     * Increases the ticket quality of seniors
+     */
     public void increaseSeniorQuantity(View v){
         //Over the limit of 5 tickets
         if(!(seniorTicketQuantity + 1 <= 5)){
@@ -188,7 +209,9 @@ public class PriceDetailsActivity extends AppCompatActivity {
         updatePrices();
         return;
     }
-
+    /*
+     * Decreases the ticket quality of seniors
+     */
     public void decreaseSeniorQuantity(View v){
         //Can't have less than 0 tickets
         if(!(seniorTicketQuantity - 1 >= 0)){
@@ -200,7 +223,9 @@ public class PriceDetailsActivity extends AppCompatActivity {
         updatePrices();
         return;
     }
-
+    /*
+     * updates the total price
+     */
     private void updatePrices(){
         ticketCost = (studentTicketQuantity * studentTicketPrice) + (adultTicketQuantity * adultTicketPrice) + (seniorTicketQuantity * seniorTicketPrice);
         taxCost = ticketCost * 0.08875;
