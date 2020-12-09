@@ -17,3 +17,5 @@ public class NaturalHistory extends Museum implements Serializable {
     static final double studentTicketPrice = 18.00; // price of student ticket
     static final double adultTicketPrice = 23.00;  // price of adult ticket
     static final double seniorTicketPrice = 18.00; // price of senior ticket
+	
+}
